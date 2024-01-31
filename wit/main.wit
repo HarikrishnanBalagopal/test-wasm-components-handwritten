@@ -1,0 +1,5 @@
+package root:component;
+
+world root {
+  export length: func(input: string) -> u32;
+}
