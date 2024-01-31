@@ -17,3 +17,6 @@ build-comp:
 .PHONY: run
 run:
 	wasmtime run --wasm component-model addcomp.wasm
+
+.PHONY: full
+full: clean build build-comp run
