@@ -2,4 +2,6 @@ package root:component;
 
 world root {
   export length: func(input: string) -> u32;
+  export run: func() -> result;
+  export wasi:cli/run@0.2.0;
 }

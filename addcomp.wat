@@ -51,10 +51,18 @@
             local.get $t1
             memory.copy
         )
+        (func $run (result i32)
+            i32.const 10
+            i32.const 50
+            call $length
+            drop
+            i32.const 0
+        )
         (memory $mem 1)
         (export "mem" (memory $mem))
         (export "length" (func $length))
         (export "realloc" (func $realloc))
+        (export "run" (func $run))
     )
     (core instance $length_instance (instantiate $LengthCoreWasm))
     (func (export "length") (param "input" string) (result u32)
@@ -63,5 +71,15 @@
             (memory $length_instance "mem")
             (realloc (func $length_instance "realloc"))
         )
+    )
+    (func $run (export "run") (result (result))
+        (canon lift
+            (core func $length_instance "run")
+            (memory $length_instance "mem")
+            (realloc (func $length_instance "realloc"))
+        )
+    )
+    (instance (export "wasi:cli/run@0.2.0")
+        (export "run" (func $run))
     )
 )

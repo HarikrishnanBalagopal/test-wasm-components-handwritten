@@ -13,3 +13,7 @@ wit:
 .PHONY: build-comp
 build-comp:
 	wasm-tools parse addcomp.wat -o addcomp.wasm
+
+.PHONY: run
+run:
+	wasmtime run --wasm component-model addcomp.wasm
