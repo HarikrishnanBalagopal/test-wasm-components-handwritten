@@ -2,6 +2,8 @@
 
 Handwritten WASM components. The point is to learn the WASM component model https://github.com/WebAssembly/component-model/blob/main/design/mvp/Explainer.md
 
+Runtime host for running these components is in https://github.com/HarikrishnanBalagopal/test-wasm-components-handwritten-host
+
 ## Overview
 
 Based on this tutorial https://ifcoltransglinks.wordpress.com/2024/01/24/creating-a-webassembly-component-with-wat-and-wit/
